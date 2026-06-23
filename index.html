@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AspirasiKu - Berita & Pengumuman</title>
     <link rel="stylesheet" href="berita.css">
+    <style>
+        /* Tambahan CSS sedikit supaya navigasi rapi di atas header */
+        nav { background: #fff; padding: 15px 20px; display: flex; gap: 20px; border-bottom: 1px solid #ddd; }
+        nav a { text-decoration: none; color: #333; font-weight: bold; }
+    </style>
 </head>
 <body>
+
+<nav>
+    <a href="halaman.html">Beranda</a>
+    <a href="index.html" style="color: #7b1e2a;">Berita</a>
+    <a href="login.html">Masuk / Daftar</a>
+</nav>
 
 <div id="panel-berita">
     <div class="panel-header">
@@ -24,29 +35,15 @@
         <div class="grid-berita">
             <div class="card-berita" data-tag="infrastruktur">
                 <div class="tag infra">Infrastruktur</div>
-                <div class="card-body"><h3>Perbaikan Jalan Protokol</h3><p>Perbaikan jalan utama untuk kenyamanan warga.</p></div>
-            </div>
-            <div class="card-berita" data-tag="infrastruktur">
-                <div class="tag infra">Infrastruktur</div>
-                <div class="card-body"><h3>Pembangunan Jembatan</h3><p>Jembatan penghubung desa segera rampung.</p></div>
-            </div>
-
-            <div class="card-berita" data-tag="kesehatan">
-                <div class="tag kesehatan">Kesehatan</div>
-                <div class="card-body"><h3>Jadwal Posyandu Serentak</h3><p>Kegiatan rutin pengecekan balita bulan ini.</p></div>
+                <div class="card-body"><h3>Perbaikan Jalan Protokol</h3></div>
             </div>
             <div class="card-berita" data-tag="kesehatan">
                 <div class="tag kesehatan">Kesehatan</div>
-                <div class="card-body"><h3>Sosialisasi Gizi Buruk</h3><p>Program pencegahan stunting di kecamatan.</p></div>
-            </div>
-
-            <div class="card-berita" data-tag="lingkungan">
-                <div class="tag lingkungan">Lingkungan</div>
-                <div class="card-body"><h3>Program Bank Sampah</h3><p>Mari menabung sampah untuk lingkungan bersih.</p></div>
+                <div class="card-body"><h3>Jadwal Posyandu Serentak</h3></div>
             </div>
             <div class="card-berita" data-tag="lingkungan">
                 <div class="tag lingkungan">Lingkungan</div>
-                <div class="card-body"><h3>Kerja Bakti Massal</h3><p>Bersih-bersih saluran air jelang musim hujan.</p></div>
+                <div class="card-body"><h3>Program Bank Sampah</h3></div>
             </div>
         </div>
     </div>
