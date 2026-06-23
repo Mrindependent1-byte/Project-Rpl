@@ -1,33 +1,48 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="berita.css">
-    <title>AspirasiKu - Berita & Pengumuman</title>
+    <style>
+        /* Desain Minimalis lu */
+        body { font-family: sans-serif; background: #fafafa; }
+        nav { padding: 20px; display: flex; gap: 20px; background: #fff; border-bottom: 1px solid #ddd; }
+        .filter-container { padding: 20px; display: flex; gap: 10px; }
+        .btn-filter { padding: 10px 20px; border-radius: 20px; border: none; cursor: pointer; background: #eee; }
+        .active-filter { background: #7b1e2a; color: white; }
+        .grid-berita { display: flex; gap: 20px; padding: 20px; flex-wrap: wrap; }
+        .card-berita { background: white; padding: 20px; border-radius: 15px; width: 300px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    </style>
 </head>
 <body>
 
-<nav style="padding: 20px; display: flex; gap: 20px; background: #fff; border-bottom: 1px solid #ddd;">
-    <a href="halaman.html" class="btn-filter">Beranda</a>
-    <a href="index.html" class="btn-filter">Berita</a>
-    <a href="login.html" class="btn-filter">Masuk / Daftar</a>
+<nav>
+    <a href="halaman.html">Beranda</a>
+    <a href="index.html"><b>Berita</b></a>
+    <a href="login.html">Masuk / Daftar</a>
 </nav>
 
-<div id="panel-berita">
-    <div class="filter-container">
-        <button class="btn-filter active-filter">Semua</button>
-        <button class="btn-filter">Infrastruktur</button>
-        <button class="btn-filter">Kesehatan</button>
-        <button class="btn-filter">Lingkungan</button>
-    </div>
-
-    <div class="grid-berita">
-        <div class="card-berita"><div class="tag">Infrastruktur</div><h3>Perbaikan Jalan</h3></div>
-        <div class="card-berita"><div class="tag">Kesehatan</div><h3>Jadwal Posyandu</h3></div>
-        <div class="card-berita"><div class="tag">Lingkungan</div><h3>Bank Sampah</h3></div>
-    </div>
+<div class="filter-container">
+    <button class="btn-filter active-filter" onclick="filterBerita('semua')">Semua</button>
+    <button class="btn-filter" onclick="filterBerita('infrastruktur')">Infrastruktur</button>
+    <button class="btn-filter" onclick="filterBerita('kesehatan')">Kesehatan</button>
+    <button class="btn-filter" onclick="filterBerita('lingkungan')">Lingkungan</button>
 </div>
 
-<script src="script.js"></script>
+<div class="grid-berita">
+    <div class="card-berita" data-tag="infrastruktur"><h3>Perbaikan Jalan</h3></div>
+    <div class="card-berita" data-tag="kesehatan"><h3>Jadwal Posyandu</h3></div>
+    <div class="card-berita" data-tag="lingkungan"><h3>Bank Sampah</h3></div>
+</div>
+
+<script>
+    function filterBerita(kategori) {
+        document.querySelectorAll('.card-berita').forEach(card => {
+            if (kategori === 'semua' || card.dataset.tag === kategori) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
 </body>
 </html>
