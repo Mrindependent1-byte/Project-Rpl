@@ -6,13 +6,15 @@
     <title>AspirasiKu - Berita & Pengumuman</title>
     <link rel="stylesheet" href="berita.css">
     <style>
-        /* Tambahan CSS sedikit supaya navigasi rapi di atas header */
+        /* Memastikan navigasi sesuai tema */
         nav { background: #fff; padding: 15px 20px; display: flex; gap: 20px; border-bottom: 1px solid #ddd; }
         nav a { text-decoration: none; color: #333; font-weight: bold; }
+        nav a:hover { color: #7b1e2a; }
     </style>
 </head>
 <body>
 
+<!-- Navigasi -->
 <nav>
     <a href="halaman.html">Beranda</a>
     <a href="index.html" style="color: #7b1e2a;">Berita</a>
@@ -25,6 +27,7 @@
     </div>
 
     <div class="container">
+        <!-- Tombol Filter Fungsional -->
         <div class="filter-container">
             <button class="btn-filter active-filter" onclick="filterBerita('semua', this)">Semua</button>
             <button class="btn-filter" onclick="filterBerita('infrastruktur', this)">Infrastruktur</button>
@@ -32,18 +35,28 @@
             <button class="btn-filter" onclick="filterBerita('lingkungan', this)">Lingkungan</button>
         </div>
 
+        <!-- Konten Berita Informatif -->
         <div class="grid-berita">
             <div class="card-berita" data-tag="infrastruktur">
                 <div class="tag infra">Infrastruktur</div>
-                <div class="card-body"><h3>Perbaikan Jalan Protokol</h3></div>
+                <div class="card-body">
+                    <h3>Perbaikan Jalan Protokol</h3>
+                    <p>Proyek perbaikan aspal di jalan utama untuk meningkatkan keselamatan pengguna jalan.</p>
+                </div>
             </div>
             <div class="card-berita" data-tag="kesehatan">
                 <div class="tag kesehatan">Kesehatan</div>
-                <div class="card-body"><h3>Jadwal Posyandu Serentak</h3></div>
+                <div class="card-body">
+                    <h3>Jadwal Posyandu Serentak</h3>
+                    <p>Layanan pemeriksaan kesehatan balita dan ibu hamil di seluruh posyandu desa.</p>
+                </div>
             </div>
             <div class="card-berita" data-tag="lingkungan">
                 <div class="tag lingkungan">Lingkungan</div>
-                <div class="card-body"><h3>Program Bank Sampah</h3></div>
+                <div class="card-body">
+                    <h3>Program Bank Sampah</h3>
+                    <p>Sosialisasi pemilahan sampah organik dan anorganik untuk mengurangi limbah warga.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -51,8 +64,11 @@
 
 <script>
     function filterBerita(kategori, btn) {
+        // Reset tombol aktif
         document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active-filter'));
         btn.classList.add('active-filter');
+        
+        // Filter konten
         document.querySelectorAll('.card-berita').forEach(card => {
             card.style.display = (kategori === 'semua' || card.getAttribute('data-tag') === kategori) ? 'block' : 'none';
         });
