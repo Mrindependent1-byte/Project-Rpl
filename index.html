@@ -2,18 +2,15 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AspirasiKu - Berita & Pengumuman</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; margin: 0; color: #333; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; margin: 0; }
         .header { background: #800000; color: white; padding: 20px; font-size: 24px; font-weight: bold; }
         .container { padding: 30px; max-width: 1000px; margin: auto; }
-        .filter-group { margin-bottom: 30px; }
-        .btn { padding: 10px 20px; margin-right: 5px; border: 1px solid #ddd; border-radius: 5px; background: white; cursor: pointer; transition: 0.3s; }
+        .btn { padding: 10px 20px; margin-right: 5px; border: 1px solid #ddd; border-radius: 5px; background: white; cursor: pointer; }
         .btn:hover { background: #800000; color: white; }
-        .card { background: white; padding: 25px; border-radius: 12px; border-left: 8px solid #800000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .card h3 { margin-top: 0; color: #800000; }
-        .meta { font-size: 0.85em; color: #666; margin-top: 10px; font-style: italic; }
+        .card { background: white; padding: 25px; border-radius: 12px; border-left: 8px solid #800000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: 20px; }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
@@ -23,32 +20,40 @@
 <div class="container">
     <h2>Berita & Pengumuman</h2>
     <div class="filter-group">
-        <button class="btn">Semua</button>
-        <button class="btn">Infrastruktur</button>
-        <button class="btn">Kesehatan</button>
-        <button class="btn">Lingkungan</button>
-        <button class="btn">Pendidikan</button>
-        <button class="btn">Sosial</button>
+        <button class="btn" onclick="filterBerita('semua')">Semua</button>
+        <button class="btn" onclick="filterBerita('infrastruktur')">Infrastruktur</button>
+        <button class="btn" onclick="filterBerita('kesehatan')">Kesehatan</button>
+        <button class="btn" onclick="filterBerita('lingkungan')">Lingkungan</button>
+        <button class="btn" onclick="filterBerita('pendidikan')">Pendidikan</button>
+        <button class="btn" onclick="filterBerita('sosial')">Sosial</button>
     </div>
 
-    <div class="card">
-        <h3>Perbaikan Jalan Protokol Ditargetkan Selesai Sebelum Akhir Bulan Ini</h3>
-        <p>Dinas PUPR memastikan proyek perbaikan jalan protokol utama akan rampung sesuai target. Warga dihimbau untuk menggunakan jalur alternatif selama pengerjaan berlangsung.</p>
-        <div class="meta">Kategori: Infrastruktur | 2026-06-19 | Oleh: Humas Pemprov</div>
+    <div class="card berita" data-kategori="infrastruktur">
+        <h3>Perbaikan Jalan Protokol</h3>
+        <p>Proyek perbaikan jalan protokol utama akan rampung sesuai target.</p>
     </div>
-
-    <div class="card">
+    <div class="card berita" data-kategori="kesehatan">
         <h3>Jadwal Posyandu Serentak</h3>
-        <p>Pemeriksaan kesehatan balita dan ibu hamil akan dilaksanakan secara serentak di seluruh RW pada minggu keempat bulan ini. Pastikan membawa buku KIA.</p>
-        <div class="meta">Kategori: Kesehatan | 2026-06-20 | Oleh: Puskesmas Setempat</div>
+        <p>Pemeriksaan kesehatan balita dilaksanakan minggu keempat bulan ini.</p>
     </div>
-
-    <div class="card">
-        <h3>Program Bank Sampah Mandiri</h3>
-        <p>Sosialisasi pengolahan sampah rumah tangga menjadi nilai ekonomi. Kumpulkan sampah plastik Anda di titik penjemputan setiap hari Jumat.</p>
-        <div class="meta">Kategori: Lingkungan | 2026-06-21 | Oleh: Dinas Lingkungan Hidup</div>
+    <div class="card berita" data-kategori="lingkungan">
+        <h3>Program Bank Sampah</h3>
+        <p>Pengolahan sampah plastik menjadi nilai ekonomi aktif setiap hari Jumat.</p>
     </div>
 </div>
+
+<script>
+    function filterBerita(kategori) {
+        let items = document.querySelectorAll('.berita');
+        items.forEach(item => {
+            if (kategori === 'semua' || item.getAttribute('data-kategori') === kategori) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
