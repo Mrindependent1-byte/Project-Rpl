@@ -5,78 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AspirasiKu - Berita & Pengumuman</title>
     <link rel="stylesheet" href="berita.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+
+<header>
     <nav style="padding: 20px; display: flex; gap: 20px; background: #fff; border-bottom: 1px solid #ddd;">
-        <a href="halaman.html" class="btn-filter" style="text-decoration: none; color: #333;">Beranda</a>
-        <a href="index.html" class="btn-filter" style="text-decoration: none; color: #333; font-weight: bold;">Berita</a>
-        <a href="tentang.html" class="btn-filter" style="text-decoration: none; color: #333;">Tentang</a>
-        <a href="lacak.html" class="btn-filter" style="text-decoration: none; color: #333;">Lacak Laporan</a>
-        <a href="login.html" class="btn-filter" style="text-decoration: none; color: #333;">Masuk / Daftar</a>
+        <a href="halaman.html" style="text-decoration: none; color: #333;">Beranda</a>
+        <a href="index.html" style="text-decoration: none; color: #333; font-weight: bold;">Berita</a>
+        <a href="login.html" style="text-decoration: none; color: #333;">Masuk / Daftar</a>
     </nav>
 </header>
 
-    <div id="panel-berita">
-        
-        <div class="panel-header">
-            <div>
-                <div class="brand-title">📰 AspirasiKu</div>
-                <h2 class="panel-title">Berita & Pengumuman</h2>
-            </div>
-            <button class="btn-close">✕ Tutup</button>
+<div id="panel-berita" style="padding: 20px;">
+    <div class="container">
+        <div class="filter-container">
+            <button class="btn-filter active-filter">Semua</button>
+            <button class="btn-filter">Infrastruktur</button>
+            <button class="btn-filter">Kesehatan</button>
+            <button class="btn-filter">Lingkungan</button>
+            <button class="btn-filter">Pendidikan</button>
+            <button class="btn-filter">Sosial</button>
+            <button class="btn-filter">Umum</button>
         </div>
 
-        <div class="container">
-
-            <div class="filter-container">
-                <button class="btn-filter active-filter">Semua</button>
-                <button class="btn-filter">🏗 Infrastruktur</button>
-                <button class="btn-filter">🏥 Kesehatan</button>
-                <button class="btn-filter">🌿 Lingkungan</button>
-                <button class="btn-filter">📚 Pendidikan</button>
-                <button class="btn-filter">🤝 Sosial</button>
-                <button class="btn-filter">📋 Umum</button>
+        <div class="grid-berita">
+            <div class="card-berita">
+                <div class="tag">Infrastruktur</div>
+                <h3>Perbaikan Jalan Protokol</h3>
             </div>
-
-            <input type="text" placeholder="Cari berita..." class="search-input">
-
-            <div class="grid-berita">
-
-                <div class="card-berita">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356df" alt="Infrastruktur">
-                    <div class="card-body">
-                        <span class="tag infra">Infrastruktur</span>
-                        <h3>Perbaikan Jalan Protokol Ditargetkan Selesai Sebelum Akhir Bulan Ini</h3>
-                        <p>Dinas PUPR memastikan proyek perbaikan jalan protokol utama akan rampung sesuai target.</p>
-                        <small>2026-06-19 • Humas Pemprov</small>
-                    </div>
-                </div>
-
-                <div class="card-berita">
-                    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309" alt="Kesehatan">
-                    <div class="card-body">
-                        <span class="tag kesehatan">Kesehatan</span>
-                        <h3>Jadwal Lengkap Layanan Posyandu Serentak dan Pembagian Sembako Gratis</h3>
-                        <p>Jadwal posyandu serentak di seluruh kelurahan.</p>
-                        <small>2026-06-18 • Dinas Kesehatan</small>
-                    </div>
-                </div>
-
-                <div class="card-berita">
-                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b" alt="Lingkungan">
-                    <div class="card-body">
-                        <span class="tag lingkungan">Lingkungan</span>
-                        <h3>Program Bank Sampah Warga Resmi Diluncurkan di 12 Kecamatan</h3>
-                        <p>Program bank sampah di 12 kecamatan diluncurkan resmi.</p>
-                        <small>2026-06-17 • DLH</small>
-                    </div>
-                </div>
-
+            <div class="card-berita">
+                <div class="tag">Kesehatan</div>
+                <h3>Jadwal Posyandu Serentak</h3>
+            </div>
+            <div class="card-berita">
+                <div class="tag">Lingkungan</div>
+                <h3>Program Bank Sampah</h3>
             </div>
         </div>
     </div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
