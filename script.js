@@ -1,22 +1,31 @@
-function prosesLogin() {
-    // Dua baris ini wajib ada agar program bisa membaca apa yang diketik user
-    var userInput = document.getElementById("username").value;
-    var passInput = document.getElementById("password").value;
+// Fungsi untuk memfilter berita berdasarkan kategori
+const buttons = document.querySelectorAll('.panel-header button, div[style*="display: flex"] button, .container button'); 
+// Nyari semua tombol kategori
+const cards = document.querySelectorAll('.card-berita');
 
-    // Logika pencocokan akun Anda
-    if (userInput === "admin" && passInput === "admin123") {
-        alert("Login Sukses sebagai Admin!");
-        window.location.href = "admin.html";
-    } 
-    else if (userInput === "petugas1" && passInput === "petugas123") {
-        alert("Login Sukses sebagai Petugas!");
-        window.location.href = "petugas.html";
-    } 
-    else if (userInput === "user a" && passInput === "a") {
-        alert("Login Sukses sebagai User!");
-        window.location.href = "halaman.html";
-    } 
-    else {
-        alert("Username atau Password Salah!");
-    }
+// Tombol Tutup/Kembali
+const btnClose = document.querySelector('.btn-close');
+if (btnClose) {
+    btnClose.addEventListener('click', function() {
+        alert("Kembali ke halaman utama!");
+        window.location.href = "halaman.html"; // Akan kembali ke halaman utama Aspirasiku
+    });
 }
+
+// Logika klik tombol kategori
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        const kategori = this.innerText.trim().toLowerCase();
+        
+        if (kategori === 'x tutup' || kategori === 'tutup') return;
+
+        cards.forEach(card => {
+            const tag = card.querySelector('.tag').innerText.trim().toLowerCase();
+            if (kategori === 'semua' || tag.includes(kategori)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
