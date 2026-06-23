@@ -3,17 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const kartu = document.querySelectorAll('.card-berita');
 
     tombol.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            // Kalau tombol adalah link (<a>), biarkan dia pindah halaman
-            if (this.tagName === 'A') return; 
-
-            // Kalau tombol filter (<button>), jangan pindah halaman, tapi saring berita
-            e.preventDefault();
-            const filter = this.innerText.trim().toLowerCase();
-
+        btn.addEventListener('click', function() {
+            const filter = this.innerText.toLowerCase();
             kartu.forEach(item => {
-                const tag = item.querySelector('.tag').innerText.trim().toLowerCase();
-                if (filter === 'semua' || tag.includes(filter)) {
+                const tag = item.querySelector('.tag').innerText.toLowerCase();
+                if (filter === 'semua' || tag === filter) {
                     item.style.display = 'block';
                 } else {
                     item.style.display = 'none';
