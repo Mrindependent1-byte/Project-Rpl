@@ -2,62 +2,67 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>AspirasiKu - Berita & Pengumuman</title>
+    <title>AspirasiKu - Layanan Masyarakat</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; margin: 0; }
-        .header { background: #800000; color: white; padding: 20px; font-size: 24px; font-weight: bold; }
-        .container { padding: 30px; max-width: 1000px; margin: auto; }
-        .btn { padding: 10px 20px; margin-right: 5px; border: 1px solid #ddd; border-radius: 5px; background: white; cursor: pointer; }
-        .btn:hover { background: #800000; color: white; }
-        .card { background: white; padding: 25px; border-radius: 12px; border-left: 8px solid #800000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: 20px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #f0f2f5 0%, #e0e7ff 100%); margin: 0; min-height: 100vh; }
+        
+        /* Navbar */
+        nav { background: #800000; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+        
+        .container { padding: 40px; max-width: 900px; margin: auto; }
+        
+        /* Tombol Filter */
+        .filter-group { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+        .btn { padding: 10px 20px; border: none; border-radius: 20px; background: white; cursor: pointer; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .btn:hover, .btn.active { background: #800000; color: white; transform: scale(1.05); }
+
+        /* Card Berita */
+        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; transition: 0.3s; border-left: 5px solid #800000; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
         .hidden { display: none; }
     </style>
 </head>
 <body>
 
-<div class="header">AspirasiKu</div>
+<nav>
+    <div style="font-size: 22px; font-weight: bold;">AspirasiKu</div>
+    <div class="nav-links">
+        <a href="#">Beranda</a>
+        <a href="#">Login</a>
+    </div>
+</nav>
 
 <div class="container">
-    <h2>Berita & Pengumuman</h2>
+    <h1>Beranda Aspirasi</h1>
     <div class="filter-group">
-        <button class="btn" onclick="filterBerita('semua')">Semua</button>
-        <button class="btn" onclick="filterBerita('infrastruktur')">Infrastruktur</button>
-        <button class="btn" onclick="filterBerita('kesehatan')">Kesehatan</button>
-        <button class="btn" onclick="filterBerita('lingkungan')">Lingkungan</button>
-        <button class="btn" onclick="filterBerita('pendidikan')">Pendidikan</button>
-        <button class="btn" onclick="filterBerita('sosial')">Sosial</button>
+        <button class="btn active" onclick="filterBerita('semua', this)">Semua</button>
+        <button class="btn" onclick="filterBerita('infrastruktur', this)">Infrastruktur</button>
+        <button class="btn" onclick="filterBerita('kesehatan', this)">Kesehatan</button>
+        <button class="btn" onclick="filterBerita('lingkungan', this)">Lingkungan</button>
     </div>
 
-    <div class="card berita" data-kategori="infrastruktur">
-        <h3>Perbaikan Jalan Protokol</h3>
-        <p>Proyek perbaikan jalan protokol utama akan rampung sesuai target.</p>
+    <div class="berita" data-kategori="infrastruktur">
+        <div class="card"><h3>Perbaikan Jalan Protokol</h3><p>Proyek perbaikan jalan utama akan rampung akhir bulan ini.</p></div>
     </div>
-    <div class="card berita" data-kategori="kesehatan">
-        <h3>Jadwal Posyandu Serentak</h3>
-        <p>Pemeriksaan kesehatan balita dilaksanakan minggu keempat bulan ini.</p>
+    <div class="berita" data-kategori="kesehatan">
+        <div class="card"><h3>Jadwal Posyandu</h3><p>Pemeriksaan serentak balita dilaksanakan minggu depan.</p></div>
     </div>
-    <div class="card berita" data-kategori="lingkungan">
-        <h3>Program Bank Sampah</h3>
-        <p>Pengolahan sampah plastik menjadi nilai ekonomi aktif setiap hari Jumat.</p>
-    </div>
-    <div class="card berita" data-kategori="pendidikan">
-        <h3>Beasiswa Prestasi Warga</h3>
-        <p>Pendaftaran beasiswa pendidikan bagi siswa berprestasi dibuka hingga akhir Juni.</p>
-    </div>
-    <div class="card berita" data-kategori="sosial">
-        <h3>Kegiatan Bakti Sosial</h3>
-        <p>Penggalangan bantuan sembako untuk warga terdampak akan dilaksanakan pada akhir pekan.</p>
+    <div class="berita" data-kategori="lingkungan">
+        <div class="card"><h3>Bank Sampah</h3><p>Program penjemputan sampah plastik aktif setiap hari Jumat.</p></div>
     </div>
 </div>
 
 <script>
-    function filterBerita(kategori) {
-        let items = document.querySelectorAll('.berita');
-        items.forEach(item => {
+    function filterBerita(kategori, btn) {
+        document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        document.querySelectorAll('.berita').forEach(item => {
             if (kategori === 'semua' || item.getAttribute('data-kategori') === kategori) {
-                item.classList.remove('hidden');
+                item.style.display = 'block';
             } else {
-                item.classList.add('hidden');
+                item.style.display = 'none';
             }
         });
     }
