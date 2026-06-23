@@ -2,46 +2,29 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AspirasiKu - Berita & Pengumuman</title>
     <link rel="stylesheet" href="berita.css">
+    <title>AspirasiKu - Berita & Pengumuman</title>
 </head>
 <body>
 
-<header>
-    <nav style="padding: 20px; display: flex; gap: 20px; background: #fff; border-bottom: 1px solid #ddd;">
-        <a href="halaman.html" style="text-decoration: none; color: #333;">Beranda</a>
-        <a href="index.html" style="text-decoration: none; color: #333; font-weight: bold;">Berita</a>
-        <a href="login.html" style="text-decoration: none; color: #333;">Masuk / Daftar</a>
-    </nav>
-</header>
+<nav style="padding: 20px; display: flex; gap: 20px; background: #fff; border-bottom: 1px solid #ddd;">
+    <a href="halaman.html" class="btn-filter">Beranda</a>
+    <a href="index.html" class="btn-filter">Berita</a>
+    <a href="login.html" class="btn-filter">Masuk / Daftar</a>
+</nav>
 
-<div id="panel-berita" style="padding: 20px;">
-    <div class="container">
-        <div class="filter-container">
-            <button class="btn-filter active-filter">Semua</button>
-            <button class="btn-filter">Infrastruktur</button>
-            <button class="btn-filter">Kesehatan</button>
-            <button class="btn-filter">Lingkungan</button>
-            <button class="btn-filter">Pendidikan</button>
-            <button class="btn-filter">Sosial</button>
-            <button class="btn-filter">Umum</button>
-        </div>
+<div id="panel-berita">
+    <div class="filter-container">
+        <button class="btn-filter active-filter">Semua</button>
+        <button class="btn-filter">Infrastruktur</button>
+        <button class="btn-filter">Kesehatan</button>
+        <button class="btn-filter">Lingkungan</button>
+    </div>
 
-        <div class="grid-berita">
-            <div class="card-berita">
-                <div class="tag">Infrastruktur</div>
-                <h3>Perbaikan Jalan Protokol</h3>
-            </div>
-            <div class="card-berita">
-                <div class="tag">Kesehatan</div>
-                <h3>Jadwal Posyandu Serentak</h3>
-            </div>
-            <div class="card-berita">
-                <div class="tag">Lingkungan</div>
-                <h3>Program Bank Sampah</h3>
-            </div>
-        </div>
+    <div class="grid-berita">
+        <div class="card-berita"><div class="tag">Infrastruktur</div><h3>Perbaikan Jalan</h3></div>
+        <div class="card-berita"><div class="tag">Kesehatan</div><h3>Jadwal Posyandu</h3></div>
+        <div class="card-berita"><div class="tag">Lingkungan</div><h3>Bank Sampah</h3></div>
     </div>
 </div>
 
