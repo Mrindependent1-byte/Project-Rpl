@@ -2,40 +2,48 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AspirasiKu - Berita & Pengumuman</title>
-    <!-- Pastikan link ke CSS asli Anda tetap ada -->
-    <link rel="stylesheet" href="berita.css"> 
+    <link rel="stylesheet" href="berita.css">
 </head>
 <body>
 
-<nav>
-    <a href="halaman.html">Beranda</a>
-    <a href="index.html">Berita</a>
-    <a href="login.html">Masuk / Daftar</a>
-</nav>
+<div id="panel-berita">
+    <div class="panel-header">
+        <div class="brand-title">AspirasiKu</div>
+    </div>
 
-<div class="filter-container">
-    <button class="btn-filter" onclick="filterData('semua', this)">Semua</button>
-    <button class="btn-filter" onclick="filterData('infrastruktur', this)">Infrastruktur</button>
-    <button class="btn-filter" onclick="filterData('kesehatan', this)">Kesehatan</button>
-    <button class="btn-filter" onclick="filterData('lingkungan', this)">Lingkungan</button>
-</div>
+    <div class="container">
+        <div class="filter-container">
+            <button class="btn-filter active-filter" onclick="filterBerita('semua', this)">Semua</button>
+            <button class="btn-filter" onclick="filterBerita('infrastruktur', this)">Infrastruktur</button>
+            <button class="btn-filter" onclick="filterBerita('kesehatan', this)">Kesehatan</button>
+            <button class="btn-filter" onclick="filterBerita('lingkungan', this)">Lingkungan</button>
+        </div>
 
-<div class="grid-berita">
-    <div class="card-berita" data-cat="infrastruktur"><h3>Perbaikan Jalan Protokol</h3><p>Infrastruktur</p></div>
-    <div class="card-berita" data-cat="kesehatan"><h3>Jadwal Posyandu Serentak</h3><p>Kesehatan</p></div>
-    <div class="card-berita" data-cat="lingkungan"><h3>Program Bank Sampah</h3><p>Lingkungan</p></div>
+        <div class="grid-berita">
+            <div class="card-berita" data-tag="infrastruktur">
+                <div class="tag infra">Infrastruktur</div>
+                <div class="card-body"><h3>Perbaikan Jalan Protokol</h3></div>
+            </div>
+            <div class="card-berita" data-tag="kesehatan">
+                <div class="tag kesehatan">Kesehatan</div>
+                <div class="card-body"><h3>Jadwal Posyandu Serentak</h3></div>
+            </div>
+            <div class="card-berita" data-tag="lingkungan">
+                <div class="tag lingkungan">Lingkungan</div>
+                <div class="card-body"><h3>Program Bank Sampah</h3></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
-    function filterData(kategori, btn) {
-        // Fungsi untuk menyaring berita
+    function filterBerita(kategori, btn) {
+        document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active-filter'));
+        btn.classList.add('active-filter');
         document.querySelectorAll('.card-berita').forEach(card => {
-            if (kategori === 'semua' || card.dataset.cat === kategori) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
+            card.style.display = (kategori === 'semua' || card.getAttribute('data-tag') === kategori) ? 'block' : 'none';
         });
     }
 </script>
