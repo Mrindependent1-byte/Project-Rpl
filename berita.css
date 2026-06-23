@@ -104,67 +104,40 @@ body {
     box-sizing: border-box;
 }
 
-/* --- TATA LETAK GRID BERITA --- */
+/* TATA LETAK GRID BERITA (Modern Grid) */
 .grid-berita {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Jarak antar kartu lebih lega */
+    padding: 20px;
 }
 
-/* --- KARTU BERITA (CARD) --- */
+/* KARTU BERITA (UI Estetik) */
 .card-berita {
-    background: white;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+    background: #ffffff;
+    border-radius: 16px; /* Lebih rounded biar modern */
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Bayangan lebih halus */
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
 }
 
-.card-berita img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
+.card-berita:hover {
+    transform: translateY(-8px); /* Efek melayang saat di-hover */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-.card-body {
-    padding: 18px;
-}
-
-.card-body h3 {
-    font-size: 22px;
-    margin: 10px 0;
-    color: #0f172a;
-}
-
-.card-body p {
-    color: #64748b;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.card-body small {
-    color: #94a3b8;
-}
-
-/* --- LABEL / TAG KATEGORI --- */
+/* TAMPILAN TAG KATEGORI */
 .tag {
-    padding: 6px 12px;
-    border-radius: 999px;
     font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 20px;
     font-weight: 600;
     display: inline-block;
+    margin-bottom: 12px;
 }
 
-.infra {
-    background: #ffe4e6;
-    color: #be123c;
-}
-
-.kesehatan {
-    background: #dcfce7;
-    color: #15803d;
-}
-
-.lingkungan {
-    background: #dcfce7;
-    color: #166534;
-}
+/* WARNA TAG */
+.infra { background: #ffebee; color: #d32f2f; }
+.kesehatan { background: #e8f5e9; color: #388e3c; }
+.lingkungan { background: #e3f2fd; color: #1976d2; }
