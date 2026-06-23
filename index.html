@@ -2,24 +2,14 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AspirasiKu - Berita & Pengumuman</title>
     <link rel="stylesheet" href="berita.css">
-    <style>
-        /* Pastikan navigasi tidak mengganggu tata letak */
-        nav { background: #fff; padding: 15px 20px; display: flex; gap: 20px; border-bottom: 1px solid #ddd; }
-        nav a { text-decoration: none; color: #333; font-weight: bold; }
-        
-        /* Tambahan buat memastikan tombol filter bisa diklik dengan jelas */
-        .btn-filter { cursor: pointer; transition: 0.3s; }
-        .btn-filter.active-filter { background: #7b1e2a; color: white; }
-    </style>
 </head>
 <body>
 
 <nav>
     <a href="halaman.html">Beranda</a>
-    <a href="index.html" style="color: #7b1e2a;">Berita</a>
+    <a href="index.html">Berita</a>
     <a href="login.html">Masuk / Daftar</a>
 </nav>
 
@@ -30,38 +20,25 @@
 
     <div class="container">
         <div class="filter-container">
-            <button class="btn-filter active-filter" onclick="filterBerita('semua', this)">Semua</button>
-            <button class="btn-filter" onclick="filterBerita('infrastruktur', this)">Infrastruktur</button>
-            <button class="btn-filter" onclick="filterBerita('kesehatan', this)">Kesehatan</button>
-            <button class="btn-filter" onclick="filterBerita('lingkungan', this)">Lingkungan</button>
+            <button class="btn-filter" onclick="filterBerita('semua')">Semua</button>
+            <button class="btn-filter" onclick="filterBerita('infrastruktur')">Infrastruktur</button>
+            <button class="btn-filter" onclick="filterBerita('kesehatan')">Kesehatan</button>
+            <button class="btn-filter" onclick="filterBerita('lingkungan')">Lingkungan</button>
         </div>
 
         <div class="grid-berita">
-            <div class="card-berita" data-tag="infrastruktur">
-                <div class="tag infra">Infrastruktur</div>
-                <div class="card-body"><h3>Perbaikan Jalan Protokol</h3></div>
-            </div>
-            <div class="card-berita" data-tag="kesehatan">
-                <div class="tag kesehatan">Kesehatan</div>
-                <div class="card-body"><h3>Jadwal Posyandu Serentak</h3></div>
-            </div>
-            <div class="card-berita" data-tag="lingkungan">
-                <div class="tag lingkungan">Lingkungan</div>
-                <div class="card-body"><h3>Program Bank Sampah</h3></div>
-            </div>
+            <div class="card-berita" data-tag="infrastruktur"><h3>Perbaikan Jalan Protokol</h3></div>
+            <div class="card-berita" data-tag="kesehatan"><h3>Jadwal Posyandu Serentak</h3></div>
+            <div class="card-berita" data-tag="lingkungan"><h3>Program Bank Sampah</h3></div>
         </div>
     </div>
 </div>
 
 <script>
-    function filterBerita(kategori, btn) {
-        // Hapus class 'active-filter' dari semua tombol
-        document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active-filter'));
-        // Tambahkan class ke tombol yang diklik
-        btn.classList.add('active-filter');
-        
-        // Sembunyikan/tampilkan kartu berdasarkan tag
-        document.querySelectorAll('.card-berita').forEach(card => {
+    function filterBerita(kategori) {
+        console.log("Tombol diklik: " + kategori); // Cek di tab Console browser
+        const cards = document.querySelectorAll('.card-berita');
+        cards.forEach(card => {
             if (kategori === 'semua' || card.getAttribute('data-tag') === kategori) {
                 card.style.display = 'block';
             } else {
