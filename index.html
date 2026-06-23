@@ -2,38 +2,51 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>AspirasiKu - Pusat Pengaduan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AspirasiKu - Berita & Pengumuman</title>
     <style>
-        /* Desain Utama */
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; margin: 0; }
-        .navbar { background: #800000; color: white; padding: 20px; font-size: 24px; font-weight: bold; }
-        .container { padding: 30px; }
-        
-        /* Tombol */
-        .btn { padding: 12px 25px; margin-right: 10px; cursor: pointer; border: none; border-radius: 8px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; margin: 0; color: #333; }
+        .header { background: #800000; color: white; padding: 20px; font-size: 24px; font-weight: bold; }
+        .container { padding: 30px; max-width: 1000px; margin: auto; }
+        .filter-group { margin-bottom: 30px; }
+        .btn { padding: 10px 20px; margin-right: 5px; border: 1px solid #ddd; border-radius: 5px; background: white; cursor: pointer; transition: 0.3s; }
         .btn:hover { background: #800000; color: white; }
-        
-        /* Kartu Informasi */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-        .card { background: white; padding: 20px; border-radius: 12px; border-left: 5px solid #800000; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .card { background: white; padding: 25px; border-radius: 12px; border-left: 8px solid #800000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .card h3 { margin-top: 0; color: #800000; }
+        .meta { font-size: 0.85em; color: #666; margin-top: 10px; font-style: italic; }
     </style>
 </head>
 <body>
 
-<div class="navbar">AspirasiKu</div>
+<div class="header">AspirasiKu</div>
 
 <div class="container">
-    <h2>Daftar Aspirasi</h2>
-    <div id="filter-area">
-        <button class="btn" onclick="alert('Infrastruktur: Jalan rusak di Jl. Merdeka sedang dikerjakan.')">Infrastruktur</button>
-        <button class="btn" onclick="alert('Kesehatan: Jadwal Posyandu RW 05 hari Sabtu jam 08:00.')">Kesehatan</button>
-        <button class="btn" onclick="alert('Lingkungan: Pengambilan sampah dilakukan setiap Selasa & Jumat.')">Lingkungan</button>
+    <h2>Berita & Pengumuman</h2>
+    <div class="filter-group">
+        <button class="btn">Semua</button>
+        <button class="btn">Infrastruktur</button>
+        <button class="btn">Kesehatan</button>
+        <button class="btn">Lingkungan</button>
+        <button class="btn">Pendidikan</button>
+        <button class="btn">Sosial</button>
     </div>
 
-    <div class="grid">
-        <div class="card"><h3>Jalan Protokol</h3><p>Status: Dalam proses perbaikan.</p></div>
-        <div class="card"><h3>Posyandu</h3><p>Status: Jadwal sudah rilis.</p></div>
-        <div class="card"><h3>Bank Sampah</h3><p>Status: Program aktif.</p></div>
+    <div class="card">
+        <h3>Perbaikan Jalan Protokol Ditargetkan Selesai Sebelum Akhir Bulan Ini</h3>
+        <p>Dinas PUPR memastikan proyek perbaikan jalan protokol utama akan rampung sesuai target. Warga dihimbau untuk menggunakan jalur alternatif selama pengerjaan berlangsung.</p>
+        <div class="meta">Kategori: Infrastruktur | 2026-06-19 | Oleh: Humas Pemprov</div>
+    </div>
+
+    <div class="card">
+        <h3>Jadwal Posyandu Serentak</h3>
+        <p>Pemeriksaan kesehatan balita dan ibu hamil akan dilaksanakan secara serentak di seluruh RW pada minggu keempat bulan ini. Pastikan membawa buku KIA.</p>
+        <div class="meta">Kategori: Kesehatan | 2026-06-20 | Oleh: Puskesmas Setempat</div>
+    </div>
+
+    <div class="card">
+        <h3>Program Bank Sampah Mandiri</h3>
+        <p>Sosialisasi pengolahan sampah rumah tangga menjadi nilai ekonomi. Kumpulkan sampah plastik Anda di titik penjemputan setiap hari Jumat.</p>
+        <div class="meta">Kategori: Lingkungan | 2026-06-21 | Oleh: Dinas Lingkungan Hidup</div>
     </div>
 </div>
 
