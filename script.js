@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const tombolKategori = document.querySelectorAll('.btn-filter');
-    const semuaKartu = document.querySelectorAll('.card-berita');
+    const tombol = document.querySelectorAll('.btn-filter');
+    const kartu = document.querySelectorAll('.card-berita');
 
-    tombolKategori.forEach(btn => {
+    tombol.forEach(btn => {
         btn.addEventListener('click', function(e) {
-            // Jika tombol punya link (seperti di header), biarkan berfungsi normal
-            if (this.tagName === 'A') return;
+            // Kalau tombol adalah link (<a>), biarkan dia pindah halaman
+            if (this.tagName === 'A') return; 
 
-            // Jika tombol kategori, jalankan filter
+            // Kalau tombol filter (<button>), jangan pindah halaman, tapi saring berita
             e.preventDefault();
             const filter = this.innerText.trim().toLowerCase();
 
-            semuaKartu.forEach(kartu => {
-                const tag = kartu.querySelector('.tag').innerText.trim().toLowerCase();
+            kartu.forEach(item => {
+                const tag = item.querySelector('.tag').innerText.trim().toLowerCase();
                 if (filter === 'semua' || tag.includes(filter)) {
-                    kartu.style.display = 'block';
+                    item.style.display = 'block';
                 } else {
-                    kartu.style.display = 'none';
+                    item.style.display = 'none';
                 }
             });
         });
