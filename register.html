@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AspirasiKu - Daftar Akun</title>
+  <style>
+    :root {
+      --primary-maroon: #7A152B;
+      --dark-maroon: #5A0F1F;
+      --accent-yellow: #F39C12;
+      --bg-light: #FDF9F9;
+      --text-dark: #2C3E50;
+      --text-muted: #7F8C8D;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--bg-light); color: var(--text-dark); min-height: 100vh; display: flex; flex-direction: column; }
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(122, 21, 43, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      height: 75px;
+    }
+    .brand-logo { font-size: 24px; font-weight: bold; color: var(--primary-maroon); text-decoration: none; letter-spacing: -0.5px; }
+    .btn-nav-login {
+      background-color: var(--primary-maroon);
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+    .btn-nav-login:hover { background-color: var(--dark-maroon); }
+
+    .login-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      background-color: var(--primary-maroon);
+    }
+
+    .login-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 520px;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-card h2 { font-size: 24px; font-weight: 700; color: var(--primary-maroon); margin-bottom: 8px; text-align: center; }
+    .login-card p.subtitle { font-size: 14px; color: var(--text-muted); text-align: center; margin-bottom: 30px; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: #444; margin-bottom: 8px; }
+    .form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #DCDDE1;
+      border-radius: 8px;
+      font-size: 15px;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus { border-color: var(--primary-maroon); box-shadow: 0 0 0 3px rgba(122, 21, 43, 0.1); }
+
+    .btn-submit {
+      width: 100%;
+      background-color: var(--primary-maroon);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin-top: 10px;
+    }
+    .btn-submit:hover { background-color: var(--dark-maroon); }
+
+    .msg { margin-top: 14px; padding: 12px 14px; border-radius: 10px; font-size: 13px; display: none; }
+    .msg.error { background: #fff1f1; color: #b91c1c; border: 1px solid #fecaca; }
+    .msg.ok { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+
+    footer {
+      background-color: #ffffff;
+      padding: 25px 0;
+      border-top: 1px solid #EFEFEF;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+      <a href="login.html" class="brand-logo">AspirasiKu</a>
+      <a href="login.html" class="btn-nav-login">Sudah punya akun? Masuk</a>
+    </div>
+  </header>
+
+  <div class="login-wrapper">
+    <div class="login-card">
+      <h2>Daftar Akun</h2>
+      <p class="subtitle">Buat akun untuk mulai sampaikan & pantau aspirasi</p>
+
+      <form id="registerForm" autocomplete="off">
+        <div class="form-group">
+          <label for="nama">Nama</label>
+          <input type="text" id="nama" placeholder="Nama lengkap" required />
+        </div>
+
+        <div class="form-group">
+          <label for="username">Username / Email</label>
+          <input type="text" id="username" placeholder="Email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Kata Sandi</label>
+          <input type="password" id="password" placeholder="Buat kata sandi" required />
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Konfirmasi Kata Sandi</label>
+          <input type="password" id="confirmPassword" placeholder="Ulangi kata sandi" required />
+        </div>
+
+        <div class="msg error" id="errorBox"></div>
+        <div class="msg ok" id="okBox"></div>
+
+        <button type="submit" class="btn-submit">DAFTAR</button>
+
+        <div style="text-align:center; margin-top:16px; color: var(--text-muted); font-size:14px;">
+          Sudah punya akun? <a href="login.html" style="color: var(--accent-yellow); text-decoration:none; font-weight:700;">MASUK</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 AspirasiKu. Sistem demo auth (localStorage).</p>
+  </footer>
+
+  <script>
+    const USERS_KEY = 'aspirasi_users';
+
+    function getUsers() {
+      try {
+        return JSON.parse(localStorage.getItem(USERS_KEY)) || [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function setUsers(users) {
+      localStorage.setItem(USERS_KEY, JSON.stringify(users));
+    }
+
+    function showMsg(box, text) {
+      box.textContent = text;
+      box.style.display = 'block';
+    }
+
+    document.getElementById('registerForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nama = document.getElementById('nama').value.trim();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      const errorBox = document.getElementById('errorBox');
+      const okBox = document.getElementById('okBox');
+      errorBox.style.display = 'none';
+      okBox.style.display = 'none';
+
+      if (!nama || !username || !password || !confirmPassword) {
+        return showMsg(errorBox, 'Mohon lengkapi semua data.');
+      }
+
+      if (password !== confirmPassword) {
+        return showMsg(errorBox, 'Kata sandi dan konfirmasi tidak sama.');
+      }
+
+      const users = getUsers();
+      const exists = users.some(u => String(u.username).toLowerCase() === username.toLowerCase());
+      if (exists) {
+        return showMsg(errorBox, 'Username/Email sudah terdaftar. Silakan login.');
+      }
+
+      // Simpan user baru (role warga, sesuai Login.html)
+      users.push({
+        nama,
+        username,
+        password, // demo only
+        role: 'warga'
+      });
+      setUsers(users);
+
+      showMsg(okBox, 'Pendaftaran berhasil! Silakan login.');
+
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 900);
+    });
+  </script>
+</body>
+</html>
+

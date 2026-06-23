@@ -1,0 +1,170 @@
+/* --- STYLES DASAR --- */
+body {
+    margin: 0;
+    background: #f8fafc;
+    font-family: 'Poppins', sans-serif;
+}
+
+#panel-berita {
+    display: block;
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+/* --- BAGIAN HEADER --- */
+.panel-header {
+    background: #6B0F1A;
+    background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-title {
+    font-size: 12px;
+    color: #facc15;
+    font-weight: 600;
+}
+
+.panel-title {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.btn-close {
+    background: rgba(255,255,255,.15);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-close:hover {
+    background: rgba(255,255,255,.25);
+}
+
+/* --- AREA KONTEN --- */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* --- FILTER BUTTONS --- */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.btn-filter {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 999px;
+    background: #f1f5f9;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s;
+}
+
+.btn-filter:hover {
+    background: #e2e8f0;
+}
+
+.active-filter {
+    background: #7A152B;
+    color: white;
+}
+
+.active-filter:hover {
+    background: #6B0F1A;
+}
+
+/* --- TOMBOL PENCARIAN --- */
+.search-input {
+    width: 100%;
+    max-width: 450px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+/* --- TATA LETAK GRID BERITA --- */
+.grid-berita {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+/* --- KARTU BERITA (CARD) --- */
+.card-berita {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+}
+
+.card-berita img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 18px;
+}
+
+.card-body h3 {
+    font-size: 22px;
+    margin: 10px 0;
+    color: #0f172a;
+}
+
+.card-body p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.card-body small {
+    color: #94a3b8;
+}
+
+/* --- LABEL / TAG KATEGORI --- */
+.tag {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.infra {
+    background: #ffe4e6;
+    color: #be123c;
+}
+
+.kesehatan {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.lingkungan {
+    background: #dcfce7;
+    color: #166534;
+}

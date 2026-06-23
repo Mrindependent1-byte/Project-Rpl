@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AspirasiKu - Masuk ke Akun Anda</title>
+    <style>
+        :root {
+            --primary-maroon: #7A152B;
+            --dark-maroon: #5A0F1F;
+            --accent-yellow: #F39C12;
+            --bg-light: #FDF9F9;
+            --text-dark: #2C3E50;
+            --text-muted: #7F8C8D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* === NAVBAR ATAS === */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(122, 21, 43, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 20px;
+            height: 75px;
+        }
+
+        .brand-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-maroon);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        /* === CONTAINER LOGIN UTAMA === */
+        .login-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background-color: var(--primary-maroon);
+        }
+
+        /* === KARTU LOGIN === */
+        .login-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-card h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-maroon);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .login-card p.subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* === FORMULIR === */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #DCDDE1;
+            border-radius: 8px;
+            font-size: 15px;
+            color: var(--text-dark);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-maroon);
+            box-shadow: 0 0 0 3px rgba(122, 21, 43, 0.1);
+        }
+
+        .forgot-link {
+            display: block;
+            text-align: right;
+            font-size: 13px;
+            color: var(--primary-maroon);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: -10px;
+            margin-bottom: 25px;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary-maroon);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--dark-maroon);
+        }
+
+        /* === PEMISAH & UTILITAS === */
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 25px 0;
+            color: #A0A0A0;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .divider:not(:empty)::before { margin-right: .5em; }
+        .divider:not(:empty)::after { margin-left: .5em; }
+
+        .social-login-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        .social-btn img {
+            width: 22px;
+            height: 22px;
+        }
+
+        .register-prompt {
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .register-prompt a {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-prompt a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #ffffff;
+            padding: 25px 0;
+            border-top: 1px solid #EFEFEF;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <a href="#" class="brand-logo">AspirasiKu</a>
+        </div>
+    </header>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            <h2>Masuk Ke Akun Anda</h2>
+            <p class="subtitle">Silakan masuk untuk memantau keluhan dan aspirasi</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Nama Pengguna atau Email</label>
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Kata Sandi</label>
+                    <input type="password" id="password" placeholder="Masukkan kata sandi Anda" required>
+                </div>
+
+                <a href="#" class="forgot-link">Lupa Kata Sandi?</a>
+
+                <button type="submit" class="btn-submit">MASUK SEKARANG</button>
+            </form>
+
+            <div class="msg error" id="loginErrorBox" style="display:none; margin:14px 0 0; padding:12px 14px; border-radius:10px; background:#fff1f1; color:#b91c1c; border:1px solid #fecaca; font-size:13px;"></div>
+            <div class="msg ok" id="loginOkBox" style="display:none; margin:14px 0 0; padding:12px 14px; border-radius:10px; background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; font-size:13px;"></div>
+
+            <div class="divider">ATAU MASUK DENGAN</div>
+
+            <div style="margin-top:14px; padding-top:14px; border-top:1px solid rgba(122, 21, 43, 0.12);">
+                <div style="font-size:13px; font-weight:700; color: var(--primary-maroon); margin-bottom:10px; text-align:center;">
+                    📰 Berita Terkini
+                </div>
+                <div id="berita-login-grid" style="display:grid; grid-template-columns:1fr; gap:10px;"></div>
+                <div style="text-align:center; margin-top:10px; font-size:12px; color: var(--text-muted);">
+                    <a href="halaman.html#berita" style="color: var(--accent-yellow); font-weight:700; text-decoration:none;">Lihat semua</a>
+                </div>
+            </div>
+
+            <div class="social-login-grid" style="margin-top: 15px;">
+                <button type="button" class="social-btn">
+                    <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google">
+                </button>
+                <button type="button" class="social-btn">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook">
+                </button>
+                <button type="button" class="social-btn">
+                    <img src="https://cdn-icons-png.flaticon.com/512/0/747.png" alt="Apple">
+                </button>
+            </div>
+
+            <div class="register-prompt">
+                Belum punya akun? <a href="register.html">DAFTAR BARU</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AspirasiKu. Sistem Aman dan Terpercaya.</p>
+    </footer>
+
+<script>
+    const USERS_KEY = 'aspirasi_users';
+    const SESSION_KEY = 'aspirasi_session';
+    const BERITA_KEY = 'aspirasi_berita';
+
+    function getUsers() {
+      try { return JSON.parse(localStorage.getItem(USERS_KEY)) || []; } catch (e) { return []; }
+    }
+
+    // MEMBUAT AKUN COBA-COBA OTOMATIS JIKA LOCALSTORAGE KOSONG
+    function inisialisasiAkunBawaan() {
+      const users = getUsers();
+
+      // User warga demo (muncul dulu kalau belum ada)
+      const akunWarga = "adit123@gmail.com";
+      const cekWarga = users.find(u => String(u.username).toLowerCase() === akunWarga.toLowerCase());
+      if (!cekWarga) {
+        users.push({
+          username: akunWarga,
+          password: "password123",
+          role: "warga"
+        });
+      }
+
+      // Admin demo (biar role admin bisa login dari Login.html)
+      const akunAdmin = "adit@id";
+      const cekAdmin = users.find(u => String(u.username).toLowerCase() === akunAdmin.toLowerCase());
+      if (!cekAdmin) {
+        users.push({
+          username: akunAdmin,
+          password: "adit123",
+          role: "admin"
+        });
+      }
+
+      localStorage.setItem(USERS_KEY, JSON.stringify(users));
+    }
+
+
+    function setBoxes(okText, errText) {
+      const errorBox = document.getElementById('loginErrorBox');
+      const okBox = document.getElementById('loginOkBox');
+      if (!errorBox || !okBox) return;
+
+      if (okText) {
+        okBox.textContent = okText;
+        okBox.style.display = 'block';
+        errorBox.style.display = 'none';
+      } else if (errText) {
+        errorBox.textContent = errText;
+        errorBox.style.display = 'block';
+        okBox.style.display = 'none';
+      }
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const usernameOrEmail = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (!usernameOrEmail || !password) {
+        setBoxes(null, 'Mohon isi username/email dan kata sandi.');
+        return;
+      }
+
+      const users = getUsers();
+      const user = users.find(u => String(u.username).toLowerCase() === usernameOrEmail.toLowerCase());
+        
+      if (!user || user.password !== password) {
+        setBoxes(null, 'Login gagal. Username atau password salah.');
+        return;
+      }
+
+      // Simpan data sesi login
+      localStorage.setItem(SESSION_KEY, JSON.stringify({
+        username: user.username,
+        role: user.role || 'warga',
+        loggedAt: Date.now()
+      }));
+
+      setBoxes('Login berhasil! Mengarahkan...', null);
+
+      // REDIRECT BERSIH & AMAN KE STRUKTUR FOLDER LOKAL (./)
+      setTimeout(() => {
+        const role = user.role || 'warga';
+        let namaHalaman = 'halaman.html'; // Default untuk warga biasa
+
+        if (role === 'admin') {
+          namaHalaman = 'admin.html';
+        } else if (role === 'petugas') {
+          namaHalaman = 'petugas.html';
+        }
+
+        // Eksekusi pengalihan menggunakan relative path eksplisit
+        window.location.href = './' + namaHalaman;
+      }, 700);
+    });
+
+    function renderBeritaLogin() {
+      const grid = document.getElementById('berita-login-grid');
+      if (!grid) return;
+
+      let list = [];
+      try { list = JSON.parse(localStorage.getItem(BERITA_KEY)) || []; } catch (e) { list = []; }
+      if (!Array.isArray(list)) list = [];
+
+      const warnaTag = {
+        Infrastruktur: '#ffe4e6', Kesehatan: '#d1fae5', Lingkungan: '#dcfce7',
+        Pendidikan: '#dbeafe', Sosial: '#ede9fe', Umum: '#f1f5f9'
+      };
+      const colorText = {
+        Infrastruktur: '#be123c', Kesehatan: '#065f46', Lingkungan: '#166534',
+        Pendidikan: '#1e40af', Sosial: '#5b21b6', Umum: '#475569'
+      };
+
+      const latest = list
+        .slice()
+        .sort((a, b) => (b.tanggal || 0) - (a.tanggal || 0))
+        .slice(0, 3);
+
+      if (!latest.length) {
+        grid.innerHTML = '<div style="font-size:12px;color:var(--text-muted);text-align:center;">Belum ada berita.</div>';
+        return;
+      }
+
+      grid.innerHTML = latest
+        .map((b) => {
+          const kategori = b.kategori || 'Umum';
+          const bg = warnaTag[kategori] || '#f1f5f9';
+          const tx = colorText[kategori] || '#475569';
+          return `
+            <div style="border:1px solid rgba(122, 21, 43, 0.12); border-radius:12px; padding:12px; background:#fff;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+                <span style="font-size:10px; font-weight:800; padding:3px 10px; border-radius:999px; background:${bg}; color:${tx}; white-space:nowrap;">
+                  ${kategori}
+                </span>
+                <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">${b.tanggal || ''}</span>
+              </div>
+              <div style="font-size:13px; font-weight:800; color:var(--text-dark); margin-top:8px; line-height:1.2;">${b.judul || ''}</div>
+              <div style="font-size:12px;color:var(--text-muted); margin-top:6px; line-height:1.4;">${String(b.isi || '').slice(0, 70)}...</div>
+              <div style="margin-top:10px; text-align:right;">
+                <a href="halaman.html#berita" style="font-size:12px;color:var(--accent-yellow); font-weight:800; text-decoration:none;">Baca</a>
+              </div>
+            </div>
+          `;
+        }).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      inisialisasiAkunBawaan();
+      renderBeritaLogin();
+    });
+</script>
+</body>
+</html>
