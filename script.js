@@ -1,10 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Ambil semua tombol filter dan kartu berita
-    const tombol = document.querySelectorAll('.btn-filter');
-    const kartu = document.querySelectorAll('.card-berita');
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Ambil data dari localStorage
+    const dataLaporan = JSON.parse(localStorage.getItem('aspirasi_laporan'));
 
-    // 2. Pasang perintah "klik" untuk setiap tombol
-    tombol.forEach(btn => {
+    // 2. Cek apakah ada tabelnya
+    const tabelBody = document.getElementById("tabel-aspirasi"); 
+
+    if (dataLaporan && tabelBody) {
+        // 3. Masukkan data ke tabel
+        tabelBody.innerHTML = ""; // Kosongkan dulu tabelnya
+        dataLaporan.forEach((item, index) => {
+            tabelBody.innerHTML += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${item.judul}</td>
+                    <td>${item.kategori}</td>
+                    <td>${item.tanggal}</td>
+                </tr>
+            `;
+        });
+    } else {
+        console.log("Data atau Tabel tidak ditemukan!");
+    }
+});
         btn.addEventListener('click', function() {
             // Ambil teks dari tombol yang diklik, ubah ke huruf kecil
             const filter = this.innerText.toLowerCase();
